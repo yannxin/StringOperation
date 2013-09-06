@@ -31,7 +31,9 @@ void test2(const char *input, const char *exceptOutput)
 void test3(const char *input, const char *exceptOutput)
 {
 //	char *input = "abacadae";
+
 	char *output = (char *)malloc(sizeof(char)*(strlen(input)+1));
+	memset(output, 0, strlen(output));
 	arithmetic(input, strlen(input), output);
 //	printf("%s\n", output);
 	if (0 == strcmp(output, exceptOutput))
