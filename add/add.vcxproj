@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{313A3886-EC52-4505-86CD-49E7EB3AD710}</ProjectGuid>
+    <ProjectGuid>{54CF3315-E247-4D08-BA3C-4AAFC128FD8A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>StringFilter</RootNamespace>
+    <RootNamespace>add</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -76,18 +76,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="StringAdd.h" />
-    <ClInclude Include="StringFilter.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Arithmetic.cpp" />
-    <ClCompile Include="DeleteSubStr.cpp" />
-    <ClCompile Include="DivideString.cpp" />
-    <ClCompile Include="StringAdd.cpp" />
-    <ClCompile Include="StringFilter.cpp" />
-    <ClCompile Include="StringFilterTest.cpp" />
-    <ClCompile Include="StringZip.cpp" />
+    <ClCompile Include="add.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
