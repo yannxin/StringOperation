@@ -5,16 +5,16 @@ void SelfStrMatch(const char *pattern, int pre[])
 	if (NULL == pattern)
 		return;
 	register int npattern = strlen(pattern);
-	pre[0] = 0;
-	int i, j = 0;
+	pre[0] = -1;
+	int i, j = -1;
 	for (i = 1; i < npattern; i++)
 	{
-		while (j > 0 && pattern[j] != pattern[i])
+		while (j >= 0 && pattern[j+1] != pattern[i])
 			j = pre[j];
 
-		pre[i] = j;
-		if (pattern[j] == pattern[i])
+		if (pattern[j+1] == pattern[i])
 			j++;
+		pre[i] = j;
 	}
 }
 
@@ -35,19 +35,19 @@ bool KMPStrMatch(const char *str, const char *pattern)
 	}
 	printf("\n");
 
-	j = 0;
+	j = -1;
 	for (i = 0; i < nstr; i++)
 	{
-		while (j > 0 && str[i] != pattern[j])
+		while (j >= 0 && pattern[j+1] != str[i])
 			j = pre[j];
-		if (pattern[j] == str[i])
+		if (pattern[j+1] == str[i])
 			j++;
-		if (j == npattern)
+		if (j == npattern - 1)
 		{
 //			printf("match success.\n");
-			printf("match position: %d\n", i-j+1);
+			printf("match position: %d\n", i-j);
 			result = true;
-			j = pre[j-1];
+			j = pre[j];
 		}
 	}
 	delete []pre;
