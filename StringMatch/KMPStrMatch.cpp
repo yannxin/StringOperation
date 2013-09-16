@@ -22,7 +22,7 @@ bool KMPStrMatch(const char *str, const char *pattern)
 {
 	if (NULL == str || NULL == pattern)
 		return false;
-	int nstr = strlen(str);
+	register int nstr = strlen(str);
 	int npattern = strlen(pattern);
 	printf("%d %d\n", nstr, npattern);
 	int *pre = new int[npattern];
